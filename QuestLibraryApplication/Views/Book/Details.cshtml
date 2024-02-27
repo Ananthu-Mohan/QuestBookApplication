@@ -1,0 +1,91 @@
+﻿@model QuestLibraryApplication.Models.BookModel.BookDB
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .buttonCustomize {
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+</style>
+<div class="pb-3">
+    <h3>Details of the Book - @Html.DisplayFor(model => model.BookName) </h3>
+    <hr />
+</div>
+<div class="m-4">
+    <table class="table table-striped-columns">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleasedDate)
+            </th>
+            <th>
+                Release Status
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.BookAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.BookDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.BookPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ReleasedDate)
+            </td>
+            
+                @{
+                    if (Session["released"] != null)
+                    {
+                        <td>
+                            @Session["released"]
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Released Status : Unknown
+                        </td>
+                    }
+                 }           
+        </tr>
+
+    </table>
+</div>
+
+
+
+
+
+<div class="buttonCustomize">
+    @{
+        if (String.Equals(Session["user"].ToString(), "admin", StringComparison.CurrentCultureIgnoreCase))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }, new { @class = "btn btn-danger" }) 
+        }
+     }
+     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+</div>

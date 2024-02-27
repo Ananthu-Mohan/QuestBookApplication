@@ -1,0 +1,91 @@
+﻿@model IEnumerable<QuestLibraryApplication.Models.BookModel.BookDB>
+
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+<div class="pb-3">
+    <h3>WELCOME @Session["user"]</h3>
+    <hr />
+</div>
+
+<div style="margin-left:25px;">
+    @{
+        if (String.Equals(Session["user"].ToString(), "admin", StringComparison.CurrentCultureIgnoreCase))
+        {
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-warning" })
+        }
+     }
+</div>
+<div class="m-4">
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookAuthor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleasedDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookAuthor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleasedDate)
+                </td>
+                @{
+                    if (String.Equals(Session["user"].ToString(), "admin", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.BookID }, new { @class = "btn btn-dark" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.BookID }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.BookID }, new { @class = "btn btn-danger" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.BookID }, new { @class = "btn btn-primary" })
+                        </td>
+                    }
+                }
+            </tr>
+        }
+
+    </table>
+</div>
+@{
+    if (String.Equals(Session["user"].ToString(), "admin", StringComparison.CurrentCultureIgnoreCase))
+    {
+        @Html.ActionLink("Back to user creation page", "Index","Identity", null, new { @class = "btn btn-dark" ,@style="margin-left:20px;"})
+    }
+}

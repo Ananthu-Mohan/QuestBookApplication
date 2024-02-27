@@ -1,0 +1,73 @@
+﻿@model IEnumerable<QuestLibraryApplication.Models.UserModel.IdentityDB>
+
+<style>
+    footer{
+        position:fixed;
+        bottom:0px;
+        width:100%;
+        padding:20px;
+        text-align:center;
+    }
+</style>
+<div class="pb-3">
+    <h3>WELCOME @Session["user"]</h3>
+    <hr/>
+</div>
+
+<p style="margin-left:25px;">
+    @Html.ActionLink("Create New", "Create", null, new {@class="btn btn-warning"})
+</p>
+<div class="m-4">
+    <table class="table table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastLoginAt)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastLoginAt)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserID }, new { @class = "btn btn-dark" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.UserID }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

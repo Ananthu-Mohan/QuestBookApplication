@@ -1,0 +1,70 @@
+﻿@model QuestLibraryApplication.Models.UserModel.IdentityDB
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+    .buttonCustomize {
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+</style>
+<div class="pb-3">
+    <h3>Details of the User - @Html.DisplayFor(model => model.UserName) </h3>
+    <hr />
+</div>
+
+<div class="m-4">
+    <table class="table table-striped-columns">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastLoginAt)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LastLoginAt)
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="buttonCustomize">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }, new {@class="btn btn-danger"}) |
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-warning" })
+</div>

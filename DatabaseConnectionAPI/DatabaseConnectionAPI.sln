@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseConnectionAPI", "DatabaseConnectionAPI.csproj", "{F39FC5AF-96A8-43DB-898F-90A67FC82E21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestLibraryApplication", "..\QuestLibraryApplication\QuestLibraryApplication.csproj", "{CF6E4269-B403-423D-B608-43006F15691D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F39FC5AF-96A8-43DB-898F-90A67FC82E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39FC5AF-96A8-43DB-898F-90A67FC82E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39FC5AF-96A8-43DB-898F-90A67FC82E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39FC5AF-96A8-43DB-898F-90A67FC82E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6E4269-B403-423D-B608-43006F15691D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6E4269-B403-423D-B608-43006F15691D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6E4269-B403-423D-B608-43006F15691D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6E4269-B403-423D-B608-43006F15691D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92D8ABF3-81A7-439E-A63E-D32B5A124556}
+	EndGlobalSection
+EndGlobal
