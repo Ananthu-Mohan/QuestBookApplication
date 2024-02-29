@@ -56,8 +56,8 @@ namespace QuestLibraryApplication.Controllers
                     if((String.Equals(searchedUser.UserName,userLogin.UserName, StringComparison.CurrentCultureIgnoreCase))
                         &&(String.Equals(searchedUser.Password,userLogin.Password, StringComparison.CurrentCultureIgnoreCase))) 
                     {
-                        Session["user"] = userLogin.UserName.ToUpper();
-
+                        Session["user"] = userLogin.UserName;
+                        Session["userID"] = searchedUser.UserID.ToString();
                         url = @"https://localhost:44399";
                         url = $"{url}/api/EditUser/{searchedUser.UserID}";
                         _httpUtility = new HttpUtilityClass(url);

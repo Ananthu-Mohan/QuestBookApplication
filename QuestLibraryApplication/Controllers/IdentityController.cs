@@ -82,6 +82,7 @@ namespace QuestLibraryApplication.Controllers
                     }
                 }
 
+                url = @"https://localhost:44399";
                 url = $"{url}/api/CreateUser";
                 _httpUtility = new HttpUtilityClass(url);
 

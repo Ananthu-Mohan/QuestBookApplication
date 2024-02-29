@@ -170,6 +170,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BookDatabaseController.cs" />
+    <Compile Include="Controllers\OrdersDatabaseController.cs" />
     <Compile Include="Controllers\UserDatabaseController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\ApplicationDBContext.cs" />
@@ -184,9 +185,14 @@
     <Compile Include="Migrations\202402271259299_Creating Book Table.designer.cs">
       <DependentUpon>202402271259299_Creating Book Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402291512358_Order table.cs" />
+    <Compile Include="Migrations\202402291512358_Order table.designer.cs">
+      <DependentUpon>202402291512358_Order table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookDB.cs" />
     <Compile Include="Models\IdentityDB.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202402271259299_Creating Book Table.resx">
       <DependentUpon>202402271259299_Creating Book Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402291512358_Order table.resx">
+      <DependentUpon>202402291512358_Order table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

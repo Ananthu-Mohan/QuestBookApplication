@@ -28,13 +28,14 @@
                         {
                             <li>@Html.ActionLink("Home", "Index", "Identity", new { area = "" }, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Book Registration", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("All Orders", "Index", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                         }
                         else
                         {
                             <li>@Html.ActionLink("Home", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
                         }
                     }
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Orders", "UserDefinedIndex", "Cart", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Logout", "IdentityLogin", "UserLogin", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>

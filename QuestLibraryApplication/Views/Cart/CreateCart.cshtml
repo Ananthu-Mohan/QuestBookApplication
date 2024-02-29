@@ -1,0 +1,106 @@
+﻿@model QuestLibraryApplication.Models.OrderModel.Order
+
+<style>
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    label {
+        font-weight: bold;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    .inputFields {
+        margin-left: 5px;
+    }
+
+    .buttonCustomize {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="m-4">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Order</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.HiddenFor(model => model.BookID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.BookID, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.BookID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BookName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BookName, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.HiddenFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DateOfPurchase, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateOfPurchase, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.DateOfPurchase, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TotalBookCount, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TotalBookCount, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TotalBookCount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.HiddenFor(model => model.TotalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.TotalPrice, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                    @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 buttonCustomize">
+                    <input type="submit" value="Create Order" class="btn btn-success" style="width:140px;" />
+                    @Html.ActionLink("Back to List", "Index", "Book",null, new { @class = "btn btn-dark", @style = "width:135px" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

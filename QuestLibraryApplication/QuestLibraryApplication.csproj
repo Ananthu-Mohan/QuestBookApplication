@@ -122,12 +122,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookModel\BookDB.cs" />
+    <Compile Include="Models\OrderModel\Order.cs" />
     <Compile Include="Models\UserModel\IdentityDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\HttpUtilityClass.cs" />
@@ -195,6 +197,9 @@
     <Content Include="Views\Book\Create.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
+    <Content Include="Views\Cart\CreateCart.cshtml" />
+    <Content Include="Views\Cart\UserDefinedIndex.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

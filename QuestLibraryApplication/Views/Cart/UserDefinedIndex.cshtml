@@ -1,0 +1,63 @@
+﻿@model IEnumerable<QuestLibraryApplication.Models.OrderModel.Order>
+<style>
+    footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+<div class="pb-3">
+    <h3>WELCOME @Session["user"]</h3>
+    <hr />
+</div>
+<div class="m-4">
+    <table class="table table-hover table-striped table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderRefID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalBookCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPurchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderRefID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalBookCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfPurchase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
