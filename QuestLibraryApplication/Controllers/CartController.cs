@@ -19,6 +19,7 @@ using System.Web.DynamicData;
 
 namespace QuestLibraryApplication.Controllers
 {
+    [RoutePrefix("Cart")]
     public class CartController : Controller
     {
         private string url = @"https://localhost:44399";
@@ -26,6 +27,8 @@ namespace QuestLibraryApplication.Controllers
         List<Order> SearchedOrderDetails = new List<Order>();
         // GET: Cart
         [HttpGet]
+        [Route("")]
+        [Route("UserOrderDetails")]
         public async Task<ActionResult> UserDefinedIndex()
         {
             ViewBag.Title = "Order Details";
@@ -70,6 +73,7 @@ namespace QuestLibraryApplication.Controllers
             
         }
         [HttpGet]
+        [Route("AllOrderDetails")]
         public async Task<ActionResult> Index()
         {
             ViewBag.Title = "All the Order Details";
@@ -88,6 +92,7 @@ namespace QuestLibraryApplication.Controllers
             }
         }
         [HttpGet]
+        [Route("GeneratePDF")]
         public async Task<ActionResult> CreateInvoice()
         {
             ViewBag.Title = "Creating Invoice PDF";
@@ -117,6 +122,7 @@ namespace QuestLibraryApplication.Controllers
             return RedirectToAction("UserDefinedIndex");
         }
         [HttpGet]
+        [Route("CreateNewOrder/{id}")]
         public async Task<ActionResult> CreateCart(int? id)
         {
             ViewBag.Title = "Create new Orders";
@@ -146,6 +152,7 @@ namespace QuestLibraryApplication.Controllers
             }
         }
         [HttpPost]
+        [Route("CreateNewOrder/{id}")]
         public async Task<ActionResult> CreateCart(int? id,Order newOrderDetails)
         {
             ViewBag.Title = "Create new Orders";

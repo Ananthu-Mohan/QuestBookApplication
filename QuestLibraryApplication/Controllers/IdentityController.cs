@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace QuestLibraryApplication.Controllers
 {
+    [RoutePrefix("User")]
     public class IdentityController : Controller
     {
         private string url = @"https://localhost:44399";
@@ -18,6 +19,8 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Identity
         [HttpGet]
+        [Route("")]
+        [Route("MultipleUserDetails")]
         public async Task<ActionResult> Index()
         {
             ViewBag.Title = "All the User details";
@@ -38,6 +41,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Identity/Details/5
         [HttpGet]
+        [Route("UserDetails/{id}")]
         public async Task<ActionResult> Details(int id)
         {
             ViewBag.Title = "User detail";
@@ -58,6 +62,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Identity/Create
         [HttpGet]
+        [Route("CreateNewUser")]
         public ActionResult Create()
         {
             ViewBag.Title = "Create new User";
@@ -66,6 +71,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Identity/Create
         [HttpPost]
+        [Route("CreateNewUser")]
         public async Task<ActionResult> Create(IdentityDB createUserDetails)
         {
             ViewBag.Title = "Create new User";
@@ -114,6 +120,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Identity/Edit/5
         [HttpGet]
+        [Route("EditUser/{id}")]
         public async Task<ActionResult> Edit(int id)
         {
             ViewBag.Title = "Edit User";
@@ -134,6 +141,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Identity/Edit/5
         [HttpPost]
+        [Route("EditUser/{id}")]
         public async Task<ActionResult> Edit(int id, IdentityDB UpdatedUserDetails)
         {
             ViewBag.Title = "Edit User";
@@ -163,6 +171,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Identity/Delete/5
         [HttpGet]
+        [Route("DeleteUser/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             ViewBag.Title = "Delete User";
@@ -183,6 +192,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Identity/Delete/5
         [HttpPost]
+        [Route("DeleteUser/{id}")]
         public async Task<ActionResult> Delete(int id, IdentityDB userDetails)
         {
             ViewBag.Title = "Delete User";

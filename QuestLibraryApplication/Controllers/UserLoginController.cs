@@ -1,27 +1,34 @@
-﻿using Newtonsoft.Json;
+﻿using Antlr.Runtime.Misc;
+using Newtonsoft.Json;
 using QuestLibraryApplication.Abstraction;
 using QuestLibraryApplication.Models.UserModel;
 using QuestLibraryApplication.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace QuestLibraryApplication.Controllers
 {
+    [RoutePrefix("UserLogin")]
     public class UserLoginController : Controller
     {
         private string url = @"https://localhost:44399";
         IHttpUtility _httpUtility;
         // GET: UserLogin
         [HttpGet]
+        [Route("")]
+        [Route("Login")]
         public async Task<ActionResult> IdentityLogin()
         {
             return View();
         }
         [HttpPost]
+        [Route("")]
+        [Route("Login")]
         public async Task<ActionResult> IdentityLogin(IdentityDB userLogin)
         {
             url = $"{url}/api/GetMultipleUsers";

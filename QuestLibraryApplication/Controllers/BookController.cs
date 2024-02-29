@@ -12,12 +12,15 @@ using System.Web.Mvc;
 
 namespace QuestLibraryApplication.Controllers
 {
+    [RoutePrefix("Book")]
     public class BookController : Controller
     {
         private string url = @"https://localhost:44399";
         IHttpUtility _httpUtility;
         // GET: Book
         [HttpGet]
+        [Route("")]
+        [Route("MultipleBookDetails")]
         public async Task<ActionResult> Index()
         {
             ViewBag.Title = "Book Records";
@@ -37,6 +40,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Book/Details/5
         [HttpGet]
+        [Route("SingleBookDetails/{id}")]
         public async Task<ActionResult> Details(int id)
         {
             ViewBag.Title = "Book Details";
@@ -66,6 +70,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Book/Create
         [HttpGet]
+        [Route("CreateNewBook")]
         public ActionResult Create()
         {
             ViewBag.Title = "Create New Book";
@@ -74,6 +79,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Book/Create
         [HttpPost]
+        [Route("CreateNewBook")]
         public async Task<ActionResult> Create(BookDB books)
         {
             ViewBag.Title = "Create New Book";
@@ -124,6 +130,7 @@ namespace QuestLibraryApplication.Controllers
 
         // GET: Book/Edit/5
         [HttpGet]
+        [Route("EditBook/{id}")]
         public async Task<ActionResult> Edit(int id)
         {
             ViewBag.Title = "Edit Book";
@@ -153,6 +160,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Book/Edit/5
         [HttpPost]
+        [Route("EditBook/{id}")]
         public async Task<ActionResult> Edit(int id, BookDB updatedBookDetails)
         {
             ViewBag.Title = "Edit Book";
@@ -190,6 +198,7 @@ namespace QuestLibraryApplication.Controllers
         }
         // GET: Book/Delete/5
         [HttpGet]
+        [Route("DeleteBook/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             ViewBag.Title = "Delete Book";
@@ -210,6 +219,7 @@ namespace QuestLibraryApplication.Controllers
 
         // POST: Book/Delete/5
         [HttpPost]
+        [Route("DeleteBook/{id}")]
         public async Task<ActionResult> Delete(int id, BookDB bookdetails)
         {
             ViewBag.Title = "Delete Book";
