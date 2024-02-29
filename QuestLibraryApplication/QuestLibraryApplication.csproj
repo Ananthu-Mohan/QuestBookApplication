@@ -46,6 +46,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Syncfusion.Compression.Base, Version=24.2450.8.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\DatabaseConnectionAPI\packages\Syncfusion.Pdf.AspNet.Mvc5.24.2.8\lib\net45\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=24.2450.8.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\DatabaseConnectionAPI\packages\Syncfusion.Pdf.AspNet.Mvc5.24.2.8\lib\net45\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=24.2450.8.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\DatabaseConnectionAPI\packages\Syncfusion.Pdf.AspNet.Mvc5.24.2.8\lib\net45\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -200,6 +209,7 @@
     <Content Include="Views\Cart\CreateCart.cshtml" />
     <Content Include="Views\Cart\UserDefinedIndex.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\CreateInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

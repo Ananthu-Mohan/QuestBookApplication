@@ -10,6 +10,12 @@ using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using System.Drawing;
+using Syncfusion.Pdf.Grid;
+using System.Data;
+using System.Web.DynamicData;
 
 namespace QuestLibraryApplication.Controllers
 {
@@ -17,6 +23,7 @@ namespace QuestLibraryApplication.Controllers
     {
         private string url = @"https://localhost:44399";
         IHttpUtility _httpUtility;
+        List<Order> SearchedOrderDetails = new List<Order>();
         // GET: Cart
         public async Task<ActionResult> UserDefinedIndex()
         {
@@ -30,16 +37,18 @@ namespace QuestLibraryApplication.Controllers
                 {
                     int userID = Convert.ToInt32(Session["userID"]);
                     List<Order> orderDetails = JsonConvert.DeserializeObject<List<Order>>(response);
-                    List<Order> SearchedOrderDetails = new List<Order>();
+                    
                     foreach (var order in orderDetails)
                     {
-                        if(order.UserID == userID)
+                        if (order.UserID == userID)
                         {
                             SearchedOrderDetails.Add(order);
                         }
                     }
-                    if(SearchedOrderDetails.Count > 0)
+                    
+                    if (SearchedOrderDetails.Count > 0)
                     {
+                        Session["OrderDetails"] = SearchedOrderDetails;
                         return View(SearchedOrderDetails);
                     }
                     else
@@ -74,9 +83,35 @@ namespace QuestLibraryApplication.Controllers
             {
                 return HttpNotFound("Orders Not Found");
             }
-
         }
+        [HttpGet]
+        public async Task<ActionResult> CreateInvoice()
+        {
+            PdfDocument doc = new PdfDocument();
+            PdfPage page = doc.Pages.Add();
+            PdfGrid pdfGrid = new PdfGrid();
+            DataTable dataTable = new DataTable();
 
+            dataTable.Columns.Add("OrderRefID");
+            dataTable.Columns.Add("BookName");
+            dataTable.Columns.Add("TotalBookCount");
+            dataTable.Columns.Add("Username");
+            dataTable.Columns.Add("DateOfPurchase");
+            dataTable.Columns.Add("TotalPrice");
+            List<Order> NewSearchedOrderDetails = Session["OrderDetails"] as List<Order>;
+
+            foreach (var order in NewSearchedOrderDetails)
+            {
+                dataTable.Rows.Add(new object[] { $"{order.OrderRefID}", $"{order.BookName}", $"{order.TotalBookCount}", $"{order.Username}", $"{order.DateOfPurchase}", $"{order.TotalPrice}" });
+            }
+            pdfGrid.DataSource = dataTable;
+            pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+            pdfGrid.Draw(page, new PointF(10, 10));
+            doc.Save("Invoice.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
+            doc.Close(true);
+
+            return RedirectToAction("UserDefinedIndex");
+        }
         [HttpGet]
         public async Task<ActionResult> CreateCart(int? id)
         {

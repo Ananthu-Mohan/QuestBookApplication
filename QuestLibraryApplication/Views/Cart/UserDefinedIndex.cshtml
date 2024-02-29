@@ -61,3 +61,10 @@
 
     </table>
 </div>
+@{Html.BeginForm("UserDefinedIndex", "UserDefinedIndex", FormMethod.Get);
+    {
+        @Html.ActionLink("Generate the Invoice", "CreateInvoice", null, new { @class = "btn btn-success", @style = "margin-left:25px;" })
+        @Html.ActionLink("Print the Invoice", "CreateInvoice", null, new { @class = "btn btn-danger", @style = "margin-left:25px;", @onclick = "window.print(); return false;" })
+    }
+    Html.EndForm();
+}
