@@ -20,6 +20,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            ViewBag.Title = "All the User details";
             url = $"{url}/api/GetMultipleUsers";
             _httpUtility = new HttpUtilityClass(url);
             
@@ -39,6 +40,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Details(int id)
         {
+            ViewBag.Title = "User detail";
             url = $"{url}/api/GetSingleUser/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -58,6 +60,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Title = "Create new User";
             return View();
         }
 
@@ -65,6 +68,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(IdentityDB createUserDetails)
         {
+            ViewBag.Title = "Create new User";
             try
             {
                 // TODO: Add insert logic here
@@ -109,8 +113,10 @@ namespace QuestLibraryApplication.Controllers
         }
 
         // GET: Identity/Edit/5
+        [HttpGet]
         public async Task<ActionResult> Edit(int id)
         {
+            ViewBag.Title = "Edit User";
             url = $"{url}/api/GetSingleUser/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -130,6 +136,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(int id, IdentityDB UpdatedUserDetails)
         {
+            ViewBag.Title = "Edit User";
             try
             {
                 // TODO: Add update logic here
@@ -155,8 +162,10 @@ namespace QuestLibraryApplication.Controllers
         }
 
         // GET: Identity/Delete/5
+        [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
+            ViewBag.Title = "Delete User";
             url = $"{url}/api/GetSingleUser/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -176,6 +185,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id, IdentityDB userDetails)
         {
+            ViewBag.Title = "Delete User";
             try
             {
                 // TODO: Add delete logic here

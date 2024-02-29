@@ -25,8 +25,10 @@ namespace QuestLibraryApplication.Controllers
         IHttpUtility _httpUtility;
         List<Order> SearchedOrderDetails = new List<Order>();
         // GET: Cart
+        [HttpGet]
         public async Task<ActionResult> UserDefinedIndex()
         {
+            ViewBag.Title = "Order Details";
             url = $"{url}/api/GetMultipleOrderDetails";
             _httpUtility = new HttpUtilityClass(url);
             var response = await _httpUtility.GetAsyncMethod();
@@ -70,6 +72,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            ViewBag.Title = "All the Order Details";
             url = $"{url}/api/GetMultipleOrderDetails";
             _httpUtility = new HttpUtilityClass(url);
             var response = await _httpUtility.GetAsyncMethod();
@@ -87,6 +90,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> CreateInvoice()
         {
+            ViewBag.Title = "Creating Invoice PDF";
             PdfDocument doc = new PdfDocument();
             PdfPage page = doc.Pages.Add();
             PdfGrid pdfGrid = new PdfGrid();
@@ -115,6 +119,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> CreateCart(int? id)
         {
+            ViewBag.Title = "Create new Orders";
             url = $"{url}/api/GetSingleBookData/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -143,7 +148,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateCart(int? id,Order newOrderDetails)
         {
-
+            ViewBag.Title = "Create new Orders";
             url = $"{url}/api/GetSingleBookData/{newOrderDetails.BookID}";
             _httpUtility = new HttpUtilityClass(url);
 

@@ -20,6 +20,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            ViewBag.Title = "Book Records";
             url = $"{url}/api/GetBookData";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -38,6 +39,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Details(int id)
         {
+            ViewBag.Title = "Book Details";
             url = $"{url}/api/GetSingleBookData/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -66,6 +68,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Title = "Create New Book";
             return View();
         }
 
@@ -73,6 +76,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(BookDB books)
         {
+            ViewBag.Title = "Create New Book";
             try
             {
                 // TODO: Add insert logic here
@@ -122,6 +126,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Edit(int id)
         {
+            ViewBag.Title = "Edit Book";
             url = $"{url}/api/GetSingleBookData/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -150,6 +155,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(int id, BookDB updatedBookDetails)
         {
+            ViewBag.Title = "Edit Book";
             try
             {
                 // TODO: Add update logic here
@@ -186,6 +192,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
+            ViewBag.Title = "Delete Book";
             url = $"{url}/api/GetSingleBookData/{id}";
             _httpUtility = new HttpUtilityClass(url);
 
@@ -205,6 +212,7 @@ namespace QuestLibraryApplication.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id, BookDB bookdetails)
         {
+            ViewBag.Title = "Delete Book";
             try
             {
                 // TODO: Add delete logic here
